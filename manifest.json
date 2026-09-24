@@ -12,10 +12,10 @@
       "type": "image/png"
     },
     {
-      "src": "android-icon-512.png",
-      "sizes": "512x512",
+      "src": "piggybank.png",
+      "sizes": "660x542",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
