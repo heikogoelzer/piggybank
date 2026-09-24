@@ -1,15 +1,13 @@
 const CACHE_NAME = 'piggybank-cache-v1';
 
-// Add all the files your app needs to run offline
+// Add all the files your app needs to run offline (no icon and manifest)
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/style.css',        // CSS file
   '/mySketch.js',      // JS file
-  '/piggybank.png',    // other files
-  '/apple-touch-icon.png',
-  '/manifest.json',
-  'https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.js' // p5js lib
+  '/piggybank.png',        // other files
+  'https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.js' //p5js lib
 ];
 
 // 1. Install Event: Cache all critical files
@@ -17,9 +15,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('Caching app assets...');
-      return Promise.all(ASSETS_TO_CACHE.map((url) =>
-        cache.add(url).catch((err) => console.warn('Failed to cache', url, err))
-      ));
+      return cache.addAll(ASSETS_TO_CACHE);
     }).then(() => self.skipWaiting()) // Force the waiting service worker to become active
   );
 });
