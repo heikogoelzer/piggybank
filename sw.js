@@ -1,4 +1,4 @@
-const CACHE_NAME = 'piggybank-cache-v1';
+const CACHE_NAME = 'piggybank-cache-v2';
 
 // Add all the files your app needs to run offline (no icon and manifest)
 const ASSETS_TO_CACHE = [
